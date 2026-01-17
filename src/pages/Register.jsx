@@ -10,7 +10,7 @@ export default function Register() {
   const register = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://ai-it-training-server.onrender.com/api/auth/register", {
+      await axios.post("https://ai-it-training-server.onrender.com/api/auth/register", {
         name,
         email,
         password,

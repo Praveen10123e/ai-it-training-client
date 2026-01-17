@@ -16,7 +16,7 @@ export default function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user")); // ✅ get logged user
 
   useEffect(() => {
-    axios.get("http://ai-it-training-server.onrender.com/api/course")
+    axios.get("https://ai-it-training-server.onrender.com/api/course")
       .then(res => setCourses(res.data))
       .catch(err => console.log(err));
   }, []);

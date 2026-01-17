@@ -4,7 +4,7 @@ export default function AITutor(){
   const [q,setQ]=useState("");
   const [a,setA]=useState("");
   const ask=async()=>{
-    const r=await axios.post("http://ai-it-training-server.onrender.com/api/ai",{question:q});
+    const r=await axios.post("https://ai-it-training-server.onrender.com/api/ai",{question:q});
     setA(r.data.answer);
   };
   return <>

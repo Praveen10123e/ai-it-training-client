@@ -10,7 +10,7 @@ export default function Profile() {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    axios.get(`http://ai-it-training-server.onrender.com/api/profile/${user._id}`)
+    axios.get(`https://ai-it-training-server.onrender.com/api/profile/${user._id}`)
       .then(res => {
         setData(res.data);
         setForm(res.data.user);
@@ -19,7 +19,7 @@ export default function Profile() {
 
   const save = async () => {
     const res = await axios.put(
-      `http://ai-it-training-server.onrender.com/api/profile/${user._id}`,
+      `https://ai-it-training-server.onrender.com/api/profile/${user._id}`,
       form
     );
     localStorage.setItem("user", JSON.stringify(res.data));

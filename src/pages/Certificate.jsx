@@ -7,7 +7,7 @@ export default function Certificate() {
 
   useEffect(() => {
     axios
-      .get("http://ai-it-training-server.onrender.com/api/certificate/" + user._id)
+      .get("https://ai-it-training-server.onrender.com/api/certificate/" + user._id)
       .then(res => setCerts(res.data));
   }, []);
 

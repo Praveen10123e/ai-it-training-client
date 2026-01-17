@@ -19,7 +19,7 @@ export default function Course() {
   // Load course
   useEffect(() => {
     axios
-      .get(`http://ai-it-training-server.onrender.com/api/course/${id}`)
+      .get(`https://ai-it-training-server.onrender.com/api/course/${id}`)
       .then((res) => {
         setCourse(res.data);
         setCurrent(res.data.videos?.[0]);
@@ -31,7 +31,7 @@ export default function Course() {
     if (!user) return;
 
     axios
-      .get(`http://ai-it-training-server.onrender.com/api/progress/${user._id}/${id}`)
+      .get(`https://ai-it-training-server.onrender.com/api/progress/${user._id}/${id}`)
       .then((res) => setProgress(res.data?.percentage || 0));
   }, [id, user]);
 
@@ -65,7 +65,7 @@ export default function Course() {
   const onPlayerStateChange = async (event) => {
     if (event.data === window.YT.PlayerState.ENDED) {
       const res = await axios.post(
-        "http://ai-it-training-server.onrender.com/api/progress/complete",
+        "https://ai-it-training-server.onrender.com/api/progress/complete",
         {
           userId: user._id,
           courseId: id,

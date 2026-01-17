@@ -29,8 +29,8 @@ export default function AdminDashboard() {
   const [selectedCourse, setSelectedCourse] = useState("");
 
   const loadData = async () => {
-    const statsRes = await axios.get("http://ai-it-training-server.onrender.com/api/admin/stats");
-    const courseRes = await axios.get("http://ai-it-training-server.onrender.com/api/course");
+    const statsRes = await axios.get("https://ai-it-training-server.onrender.com/api/admin/stats");
+    const courseRes = await axios.get("https://ai-it-training-server.onrender.com/api/course");
     setStats(statsRes.data);
     setCourses(courseRes.data);
   };
@@ -51,7 +51,7 @@ export default function AdminDashboard() {
   const addCourse = async () => {
     if (!newTitle) return alert("Enter course title");
 
-    await axios.post("http://ai-it-training-server.onrender.com/api/course", {
+    await axios.post("https://ai-it-training-server.onrender.com/api/course", {
       title: newTitle,
       description: newDesc,
       videos: []
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
     if (!videoId || !selectedCourse)
       return alert("Invalid link or select course");
 
-    await axios.post("http://ai-it-training-server.onrender.com/api/course/video", {
+    await axios.post("https://ai-it-training-server.onrender.com/api/course/video", {
       courseId: selectedCourse,
       title: videoTitle,
       videoId
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
   // DELETE COURSE
   const deleteCourse = async (id) => {
     if (!window.confirm("Delete course permanently?")) return;
-    await axios.delete(`http://ai-it-training-server.onrender.com/api/course/${id}`);
+    await axios.delete(`https://ai-it-training-server.onrender.com/api/course/${id}`);
     loadData();
   };
 
@@ -95,7 +95,7 @@ export default function AdminDashboard() {
 
   const saveEdit = async () => {
     await axios.put(
-      `http://ai-it-training-server.onrender.com/api/course/${editCourse._id}`,
+      `https://ai-it-training-server.onrender.com/api/course/${editCourse._id}`,
       { title }
     );
     setEditCourse(null);
@@ -223,7 +223,7 @@ export default function AdminDashboard() {
           type="button"
           onClick={async () => {
             await axios.put(
-              `http://ai-it-training-server.onrender.com/api/course/${editCourse._id}`,
+              `https://ai-it-training-server.onrender.com/api/course/${editCourse._id}`,
               { title }
             );
             setEditCourse(null);

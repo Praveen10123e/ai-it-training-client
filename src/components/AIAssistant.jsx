@@ -23,7 +23,7 @@ Ask me any doubt related to this course.`,
     setLoading(true);
 
     try {
-      const res = await axios.post("http://ai-it-training-server.onrender.com/api/ai/chat", {
+      const res = await axios.post("https://ai-it-training-server.onrender.com/api/ai/chat", {
         courseTitle,
         message: userMessage.text,
       });

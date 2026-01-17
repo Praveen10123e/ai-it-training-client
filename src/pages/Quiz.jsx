@@ -8,7 +8,7 @@ export default function Quiz(){
   const [score,setScore]=useState(0);
 
   useEffect(()=>{
-    axios.get("http://ai-it-training-server.onrender.com/api/quiz/"+id).then(r=>setQ(r.data));
+    axios.get("https://ai-it-training-server.onrender.com/api/quiz/"+id).then(r=>setQ(r.data));
   },[]);
 
   const check=(s,c)=>{ if(s===c) setScore(score+1); };
